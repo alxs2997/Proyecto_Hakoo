@@ -4,9 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('proyecto-hakoo:server');
-var http = require('http');
+import app from '../app.js';
+//var debug = require('debug')('proyecto-hakoo:server');
+import debugpkg from 'debug';
+import { createServer } from 'http';
+
+const debug = debugpkg('proyecto-hakoo:server')
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +22,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
