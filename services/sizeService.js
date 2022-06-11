@@ -1,22 +1,22 @@
-import Usuario from '../models/usuario.js';
+import Talla from '../models/talla.js';
 
 async function crear (data){
-    return await Usuario.create(data);
+    return await Talla.create(data);
 }
 
 async function mostrar (id){
-    return await Usuario.findByPk(id);
+    return await Talla.findByPk(id);
 }
 //Retornará todos los datos de la tabla clientes
 async function mostrarTodos (){
-    return await Usuario.findAll();
+    return await Talla.findAll();
 }
 async function eliminar (id){
-    return await Usuario.destroy({ where: { id_usuario : id } });
+    return await Talla.destroy({ where: { id_talla : id } });
 }
 
 async function actualizar (id, data){
-    return await Usuario.update(data,{ where: { id_usuario : id}})
+    return await Talla.update(data,{ where: { id_talla : id}})
 }
 
 export default { 

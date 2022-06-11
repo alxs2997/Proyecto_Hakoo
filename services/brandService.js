@@ -1,22 +1,22 @@
-import Usuario from '../models/usuario.js';
+import Marca from '../models/marca.js';
 
 async function crear (data){
-    return await Usuario.create(data);
+    return await Marca.create(data);
 }
 
 async function mostrar (id){
-    return await Usuario.findByPk(id);
+    return await Marca.findByPk(id);
 }
 //Retornará todos los datos de la tabla clientes
 async function mostrarTodos (){
-    return await Usuario.findAll();
+    return await Marca.findAll();
 }
 async function eliminar (id){
-    return await Usuario.destroy({ where: { id_usuario : id } });
+    return await Marca.destroy({ where: { id_marca : id } });
 }
 
 async function actualizar (id, data){
-    return await Usuario.update(data,{ where: { id_usuario : id}})
+    return await Marca.update(data,{ where: { id_marca : id}})
 }
 
 export default { 

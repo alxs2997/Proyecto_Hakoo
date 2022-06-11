@@ -1,22 +1,22 @@
-import Usuario from '../models/usuario.js';
+import Orden from '../models/orden.js';
 
 async function crear (data){
-    return await Usuario.create(data);
+    return await Orden.create(data);
 }
 
 async function mostrar (id){
-    return await Usuario.findByPk(id);
+    return await Orden.findByPk(id);
 }
 //Retornará todos los datos de la tabla clientes
 async function mostrarTodos (){
-    return await Usuario.findAll();
+    return await Orden.findAll();
 }
 async function eliminar (id){
-    return await Usuario.destroy({ where: { id_usuario : id } });
+    return await Orden.destroy({ where: { id_orden : id } });
 }
 
 async function actualizar (id, data){
-    return await Usuario.update(data,{ where: { id_usuario : id}})
+    return await Orden.update(data,{ where: { id_orden : id}})
 }
 
 export default { 
