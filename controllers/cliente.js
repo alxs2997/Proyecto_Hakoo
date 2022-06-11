@@ -1,8 +1,8 @@
 import servicioCliente from '../services/clientService.js';
 //controlador de clientes
 
-function index(req,res){
-    const clientes = servicioCliente.mostrarTodos();
+async function index(req,res){
+    const clientes = await servicioCliente.mostrarTodos();
     res.send(clientes);
 }
 

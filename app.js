@@ -5,7 +5,7 @@ import express, { json, urlencoded} from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import clienteRouter from './routes/clienteRoute.js';
+import { crearRutas } from './routes/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 var app = express();
@@ -20,7 +20,8 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', clienteRouter);
+//añadiendo rutas
+crearRutas(app) 
 
 
 // catch 404 and forward to error handler
