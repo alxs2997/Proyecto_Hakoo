@@ -1,8 +1,6 @@
 import Cliente from '../models/cliente.js';
 
 async function crear (data){
-    console.log('datos de formulario');
-    console.log(data);
     return await Cliente.create(data);
 }
 
@@ -20,7 +18,7 @@ async function eliminar (id){
 }
 
 async function actualizar (id, data){
-    return await Cliente.update({data},{ where: { id_cliente : id}})
+    return await Cliente.update(data,{ where: { id_cliente: id}})
 }
 
 export default { 
