@@ -1,11 +1,13 @@
 import Cliente from '../models/cliente.js';
 
-function crear (data){
-
+async function crear (data){
+    console.log('datos de formulario');
+    console.log(data);
+    return await Cliente.create(data);
 }
 
-function mostrar (id){
-    
+async function mostrar (id){
+    return await Cliente.findByPk(id);
 }
 //Retornará todos los datos de la tabla clientes
 async function mostrarTodos (){
@@ -13,16 +15,12 @@ async function mostrarTodos (){
     return await Cliente.findAll();
     //console.log(client);
 }
-//mostrarTodos();
-/*(async () => {
-    console.log(await mostrarTodos()); 
-})*/
-function eliminar (id){
-    
+async function eliminar (id){
+    return await Cliente.destroy({ where: { id_cliente : id } });
 }
 
-function actualizar (id, data){
-    
+async function actualizar (id, data){
+    return await Cliente.update({data},{ where: { id_cliente : id}})
 }
 
 export default { 
