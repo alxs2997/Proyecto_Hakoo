@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser'
 import logger from 'morgan';
 import autenticar from './utils/autenticar.js'
+import cors from 'cors'
 
 import { crearRutas } from './routes/index.js';
 
@@ -18,6 +19,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(json());
+app.use(cors())
 app.use(urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extends: true}));
 app.use(cookieParser());

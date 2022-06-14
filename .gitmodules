@@ -1,3 +1,5 @@
 [submodule "FRONTEND/Frontend_Hakoo_Store"]
 	path = FRONTEND/Frontend_Hakoo_Store
 	url = https://github.com/galle997/Frontend_Hakoo_Store.git
+[submodule "Frontend_Hakoo_Store"]
+	branch = master

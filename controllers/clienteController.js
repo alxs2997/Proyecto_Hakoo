@@ -16,7 +16,7 @@ async function update(req,res){
 async function create(req,res){
     req.body.password = utils.getHashedPassword(req.body.password)
     const cliente = await servicioCliente.crear(req.body);
-    res.send(cliente);
+    res.status(200).send(cliente);
 }
 
 async function destroy(req,res){
