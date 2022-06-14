@@ -3,7 +3,9 @@ import { fileURLToPath } from 'url';
 import createError from 'http-errors';
 import express, { json, urlencoded} from 'express';
 import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser'
 import logger from 'morgan';
+import autenticar from './utils/autenticar.js'
 
 import { crearRutas } from './routes/index.js';
 
@@ -17,8 +19,18 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extends: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Inyectar el usuario leyendo el authToken de las cookies
+app.use((req, res, next) => {
+  //obtener el token de las cookies
+  const authToken = req.cookies['AuthToken'];
+  //inyectar el usuario al request
+  req.user = autenticar.authTokens[authToken];
+  next();
+})
 
 //añadiendo rutas
 crearRutas(app) 

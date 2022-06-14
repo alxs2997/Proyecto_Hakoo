@@ -1,5 +1,13 @@
 import Cliente from '../models/cliente.js';
 
+async function buscarPorCorreo(correo){
+    return await Cliente.findAll({where: {corre: correo}})
+}
+
+async function buscarPor(criterio){
+    return await Cliente.findAll(criterio)
+}
+
 async function crear (data){
     return await Cliente.create(data);
 }
@@ -26,5 +34,6 @@ export default {
     mostrar,
     mostrarTodos,
     eliminar,
-    actualizar
+    actualizar,
+    buscarPor
  }

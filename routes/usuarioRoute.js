@@ -1,6 +1,10 @@
 import { Router } from 'express';
 import usuarioController from '../controllers/usuarioController.js';
+import verificarUsuario from '../utils/verificar.js'
+
 const router = Router();
+
+router.use(verificarUsuario)
 
 /* GET home page. */
 router.get('/',usuarioController.index)
@@ -8,4 +12,5 @@ router.get('/',usuarioController.index)
         .put('/update/:id',usuarioController.update)
         .delete('/delete/:id', usuarioController.destroy)
         .get('/show/:id', usuarioController.show);
+        
 export default router;
