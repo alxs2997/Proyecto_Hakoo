@@ -8,3 +8,6 @@ import marca from '../../models/marca.js';
 import detalleOrden from '../../models/detalleOrden.js';
 import orden from '../../models/orden.js';
 import usuario from '../../models/usuario.js';
+
+
+sequelizeConexion.sync({force:true})

@@ -6,7 +6,7 @@ const Orden = sequelizeConexion.define('ordenes', {
     id_orden: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     id_cliente: { type: DataTypes.INTEGER },
     facturada: { type: DataTypes.BOOLEAN, allowNull: false },
-    fecha_facturacion: { type: DataTypes.DATE, allowNull: false},
+    fecha_facturacion: { type: DataTypes.DATE, allowNull: true},
     fecha: { type: DataTypes.DATE, allowNull: false},
 }, { freezeTableName: true });
 

@@ -15,6 +15,7 @@ async function create(req,res){
     const orden = await servicioOrden.crear(req.body);
     res.send(orden);
 }
+
 async function destroy(req,res){
     const response = await servicioOrden.eliminar(req.params.id);
     if(response >=1){

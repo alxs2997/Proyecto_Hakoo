@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize'
 
 const Detalle = sequelizeConexion.define('detalle_orden', {
     // Model attributes are defined here
-    id_orden: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id_orden: { type: DataTypes.INTEGER },
     id_producto: { type: DataTypes.INTEGER },
     reglon: { type: DataTypes.INTEGER, allowNull: false },
     cantidad: { type: DataTypes.INTEGER},
